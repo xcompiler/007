@@ -54,3 +54,56 @@ if [ "$DOALL" == "1" ] || [ $1 == 'images' ]; then
     #formatting matters, no comments, no extra lines, unix line endings only
     #and always end with a newline
 fi
+
+for file in assets/font/*.bmp
+do
+    echo "Inserting bitmap header (08bpp_bmp_header.bin)"
+    #add the BMP header to the raw font image data
+    sed -i -e "1 e cat 08bpp_bmp_header.bin" $file
+    #extract the width and height from the filename
+    width=$((10#$(echo ${file: (( ${#file} - 13)) :3})))
+    height=$((10#$(echo ${file: (( ${#file} - 7)) :3})))
+    #invert the height, as the fonts are upside-down
+    height=$((256 - $height))
+    #convert the width and height from decimal to hexadecimal
+    printf -v width "%X" "$width"
+    printf -v height "%X" "$height"
+    #write the width and height values to the BMP header
+    echo -n -e \\x$width | dd conv=notrunc bs=1 seek=18 of=$file
+    echo -n -e \\x$height | dd conv=notrunc bs=1 seek=22 of=$file
+    echo -n -e \\xFF\\xFF\\xFF | dd conv=notrunc bs=1 seek=23 of=$file
+done
+
+# NOTE: The 16-bit BMP header file only uses the lower 3 bits 
+#       of the green data (and disregards the upper 2 bits), as 
+#       the image bytes are switched, and the RGBA bitmasks in
+#       the BMP header file must be contigious
+#
+#       This results in the BMP image appearing to be slightly tinted
+#
+#       To display the image correctly, the bytes would need to be
+#       switched, and the RGBA bitmask adjusted accordingly
+
+while IFS=, read -r offset size input_filename output_filename insert_bitmap_header bitmap_header_filename image_width_hex image_height_hex
+do
+    echo "Extracting $output_filename, $size bytes..."
+    dd bs=1 skip=$offset count=$size if=$input_filename of=$output_filename status=none
+    echo "Successfully Extracted $name"
+    if [ $insert_bitmap_header == 1 ]; then
+        #add the BMP header to the raw image data
+        sed -i -e "1 e cat $bitmap_header_filename" $output_filename
+        #write the width and height values to the BMP header
+        echo -n -e \\x$image_width_hex  | dd conv=notrunc bs=1 seek=18 of=$output_filename
+        echo -n -e \\x$image_height_hex | dd conv=notrunc bs=1 seek=22 of=$output_filename
+    echo "Inserted bitmap header ($bitmap_header_filename)"
+    fi
+done < gzipped_images.csv
+
+while IFS=, read -r offset size input_filename output_filename insert_bitmap_header bitmap_header_filename image_width_hex image_height_hex
+do
+    if test -f "$input_filename"; then
+        rm $input_filename
+        echo "Deleted $input_filename"
+    fi
+done < gzipped_images.csv
+

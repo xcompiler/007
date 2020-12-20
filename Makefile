@@ -63,6 +63,8 @@ BUILD_SUB_DIRS := \
 $(shell mkdir -p $(BUILD_DIR))
 $(foreach subdir,$(BUILD_SUB_DIRS),$(shell mkdir -p $(BUILD_DIR)/$(subdir)))
 
+#rebuild the prop files before compiling
+$(shell ./merge_prop_files.sh)
 
 
 

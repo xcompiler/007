@@ -1,0 +1,16 @@
+0,96,assets/obseg/prop/PgoldeneyelogoZ.bin,assets/obseg/prop/PgoldeneyelogoZ_0_to_96.bin,0,,,
+96,8,assets/obseg/prop/PgoldeneyelogoZ.bin,assets/obseg/prop/PADDING.bin,0,,,
+104,2048,assets/obseg/prop/PgoldeneyelogoZ.bin,assets/obseg/prop/PgoldeneyelogoZ_fonttexture01_16bpp_032_x_032.bmp,1,16bpp_bmp_header_rgb5351_not_rgb5551.bin,20,20
+2152,704,assets/obseg/prop/PgoldeneyelogoZ.bin,assets/obseg/prop/PgoldeneyelogoZ_2152_to_2856.bin,0,,,
+2856,2,assets/obseg/prop/PgoldeneyelogoZ.bin,assets/obseg/prop/PgoldeneyelogoZ_ringtexture01_16bpp_001_x_001.bmp,1,16bpp_bmp_header_rgb5351_not_rgb5551.bin,1,1
+2858,8390,assets/obseg/prop/PgoldeneyelogoZ.bin,assets/obseg/prop/PgoldeneyelogoZ_2858_to_11248.bin,0,,,
+0,136,assets/obseg/prop/PlegalpageZ.bin,assets/obseg/prop/PlegalpageZ_0_to_136.bin,0,,,
+144,2048,assets/obseg/prop/PlegalpageZ.bin,assets/obseg/prop/PlegalpageZ_bbfc_16bpp_032_x_032.bmp,1,16bpp_bmp_header_rgb5351_not_rgb5551.bin,20,20
+2200,2048,assets/obseg/prop/PlegalpageZ.bin,assets/obseg/prop/PlegalpageZ_goldeneyelogo_04bpp_128_x_032.bmp,1,04bpp_bmp_header.bin,80,20
+4256,960,assets/obseg/prop/PlegalpageZ.bin,assets/obseg/prop/PlegalpageZ_jamesbondsignature_04bpp_080_x_024.bmp,1,04bpp_bmp_header.bin,50,18
+5224,1536,assets/obseg/prop/PlegalpageZ.bin,assets/obseg/prop/PlegalpageZ_vicepresidentsignature_04bpp_128_x_024.bmp,1,04bpp_bmp_header.bin,80,18
+6768,1536,assets/obseg/prop/PlegalpageZ.bin,assets/obseg/prop/PlegalpageZ_rarelogo_04bpp_048_x_064.bmp,1,04bpp_bmp_header.bin,30,40
+8304,928,assets/obseg/prop/PlegalpageZ.bin,assets/obseg/prop/PlegalpageZ_8304_to_9232.bin,0,,,
+0,1024,assets/obseg/prop/PnintendologoZ.bin,assets/obseg/prop/PnintendologoZ_0_to_1024.bin,0,,,
+1032,1024,assets/obseg/prop/PnintendologoZ.bin,assets/obseg/prop/PnintendologoZ_unknowntexture01_08bpp_032_x_032.bmp,1,08bpp_bmp_header.bin,20,20
+2056,29576,assets/obseg/prop/PnintendologoZ.bin,assets/obseg/prop/PnintendologoZ_2056_to_31632.bin,0,,,
